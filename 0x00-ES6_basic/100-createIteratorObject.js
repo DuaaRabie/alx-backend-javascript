@@ -1,3 +1,3 @@
 export default function createIteratorObject(report) {
-  return report.allEmployees[Symbol.iterator]();
+  return [...Object.values(report.allEmployees)].flat()[Symbol.iterator]();
 }
