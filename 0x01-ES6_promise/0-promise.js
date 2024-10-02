@@ -1,10 +1,5 @@
-export async function getResponseFromAPI() {
-  // Simulate an API call
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      const apiResponse = { message: "Hello from API!" };
-      resolve(apiResponse);
-    }, 1000); // Simulate a delay
-  });
+// eslint-disable-next-line no-unused-vars
+async function getResponseFromAPI() {
+  return 'Response';
 }
-
+export default getResponseFromAPI;
