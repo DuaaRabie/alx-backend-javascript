@@ -8,5 +8,10 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
   ]).then(([signData, photoData]) => [
     signData,
     photoData,
-  ]);
+  ]).catch(([signError, photoError]) => {
+    return [
+      signError,
+      photoError,
+    ];
+  });
 }
