@@ -8,14 +8,5 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
   ]).then(([signData, photoData]) => [
     signData,
     photoData,
-  ]).catch((error) => [
-    {
-      status: 'error',
-      value: error.message || 'An unknown error occurred',
-    },
-    {
-      status: 'error',
-      value: error.message || 'An unknown error occurred',
-    },
   ]);
 }
