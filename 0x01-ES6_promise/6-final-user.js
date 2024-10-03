@@ -6,14 +6,8 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
     signUpUser(firstName, lastName),
     uploadPhoto(fileName),
   ]).then(([signData, photoData]) => [
-    {
-      status: 'success',
-      value: signData.body,
-    },
-    {
-      status: 'success',
-      value: photoData.body,
-    },
+    signData,
+    photoData,
   ]).catch((error) => [
     {
       status: 'error',
