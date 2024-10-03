@@ -22,7 +22,6 @@ export const handleProfileSignup = async (firstName, lastName, fileName) => {
     ];
   } catch (error) {
     // Handle any errors that occur during the process
-    console.error('Error during profile signup:', error);
     return [
       {
         status: 'rejected',
