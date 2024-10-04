@@ -29,10 +29,10 @@ export default class Pricing {
 
   static converPrice(amount, conversionRate) {
     if (typeof amount !== 'number' || !Number.isFinite(amount)) {
-      throw new Error('Amount must be a finite number');
+      throw new TypeError('Amount must be a number');
     }
     if (typeof conversionRate !== 'number' || !Number.isFinite(conversionRate)) {
-      throw new Error('Conversion rate must be a finite number');
+      throw new TypeError('Conversion rate must be a number');
     }  
     return amount * conversionRate;
   }
