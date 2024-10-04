@@ -33,7 +33,7 @@ export default class Pricing {
     }
     if (typeof conversionRate !== 'number' || !Number.isFinite(conversionRate)) {
       throw new TypeError('Conversion rate must be a number');
-    }  
+    }
     return amount * conversionRate;
   }
 }
