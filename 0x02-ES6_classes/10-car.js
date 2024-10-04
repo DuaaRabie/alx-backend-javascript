@@ -8,7 +8,7 @@ class Car {
     this[privateStateSymbol] = {
       brand,
       motor,
-      color
+      color,
     };
   }
 
@@ -18,18 +18,17 @@ class Car {
 
   cloneCar() {
     const privateState = this[this.constructor.privateStateSymbol];
-    
+
     if (!privateState) {
       return new this.constructor();
     }
-    
+
     return new this.constructor(
       privateState.brand,
       privateState.motor,
-      privateState.color
+      privateState.color,
     );
   }
 }
 
 export default Car;
-
