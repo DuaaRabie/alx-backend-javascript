@@ -1,7 +1,7 @@
 export default class Building {
   constructor(sqft) {
-    if (this.constructor === Building) {
-      throw new Error('Building cannot be instantiated directly');
+    if (this.constructor !== Building) {
+      throw new Error('Class extending Building must override evacuationWarningMessage');
     }
     this._sqft = sqft;
   }
@@ -21,5 +21,10 @@ export default class Building {
     if (!Object.prototype.hasOwnProperty.call(this.prototype, 'evacuationWarningMessage')) {
       throw new Error('Class extending Building must override evacuationWarningMessage');
     }
+  }
+
+  static instantiate(subclass) {
+    this.checkEvacuationWarningMessage();
+    return new subclass();
   }
 }
