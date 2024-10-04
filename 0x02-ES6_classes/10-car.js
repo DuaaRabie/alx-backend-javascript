@@ -3,11 +3,33 @@ class Car {
     this._brand = brand;
     this._motor = motor;
     this._color = color;
+
+    const privateStateSymbol = Symbol('privateState');
+    this[privateStateSymbol] = {
+      brand,
+      motor,
+      color
+    };
+  }
+
+  static get privateStateSymbol() {
+    return Symbol('privateState');
   }
 
   cloneCar() {
-    return new Car(this._brand, this._motor, this._color);
+    const privateState = this[this.constructor.privateStateSymbol];
+    
+    if (!privateState) {
+      return new this.constructor();
+    }
+    
+    return new this.constructor(
+      privateState.brand,
+      privateState.motor,
+      privateState.color
+    );
   }
 }
 
 export default Car;
+
