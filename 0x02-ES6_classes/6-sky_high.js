@@ -2,7 +2,7 @@ import Building from './5-building.js';
 
 export default class SkyHighBuilding extends Building {
   constructor(sqft, floors) {
-    super(instantiate(SkyHighBuilding));
+    super.instantiate(SkyHighBuilding);
     super(sqft);
     this._floors = floors;
   }
