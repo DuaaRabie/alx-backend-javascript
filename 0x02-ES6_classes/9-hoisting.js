@@ -1,4 +1,5 @@
 export class HolbertonClass {
+rt class HolbertonClass {
   constructor(year, location) {
     this._year = year;
     this._location = location;
@@ -12,6 +13,7 @@ export class HolbertonClass {
     return this._location;
   }
 }
+
 
 export class StudentHolberton {
   constructor(firstName, lastName, holbertonClass) {
@@ -33,22 +35,10 @@ export class StudentHolberton {
   }
 }
 
-
-const class2019 = new HolbertonClass(2019, 'San Francisco');
-const class2020 = new HolbertonClass(2020, 'San Francisco');
-
-// Create StudentHolberton instances
-export const student1 = new StudentHolberton('Guillaume', 'Salva', class2020);
-export const student2 = new StudentHolberton('John', 'Doe', class2020);
-export const student3 = new StudentHolberton('Albert', 'Clinton', class2019);
-export const student4 = new StudentHolberton('Donald', 'Bush', class2019);
-export const student5 = new StudentHolberton('Jason', 'Sandler', class2019);
-
-// Export the array of students
 export const listOfStudents = [
-  student1,
-  student2,
-  student3,
-  student4,
-  student5
+  new StudentHolberton('Guillaume', 'Salva', new HolbertonClass(2020, 'San Francisco')),
+  new StudentHolberton('John', 'Doe', new HolbertonClass(2020, 'San Francisco')),
+  new StudentHolberton('Albert', 'Clinton', new HolbertonClass(2019, 'San Francisco')),
+  new StudentHolberton('Donald', 'Bush', new HolbertonClass(2019, 'San Francisco')),
+  new StudentHolberton('Jason', 'Sandler', new HolbertonClass(2019, 'San Francisco'))
 ];
