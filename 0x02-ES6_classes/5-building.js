@@ -23,8 +23,8 @@ export default class Building {
     }
   }
 
-  static instantiate(subclass) {
+  static instantiate(Subclass) {
     this.checkEvacuationWarningMessage();
-    return new subclass();
+    return new Subclass();
   }
 }
