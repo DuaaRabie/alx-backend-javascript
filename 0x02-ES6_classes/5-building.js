@@ -1,5 +1,8 @@
 export default class Building {
   constructor(sqft) {
+    if (this.constructor === Building) {
+      throw new Error('Building cannot be instantiated directly');
+    }
     this._sqft = sqft;
   }
 
@@ -8,10 +11,15 @@ export default class Building {
   }
 
   set sqft(value) {
+    if (value < 0) {
+      throw new Error('Square feet must be a positive number');
+    }
     this._sqft = value;
   }
 
-  evacuationWarningMessage() {
-    throw new Error("This method must be implemented by subclasses");
+  static checkEvacuationWarningMessage() {
+    if (!Object.prototype.hasOwnProperty.call(this.prototype, 'evacuationWarningMessage')) {
+      throw new Error('Class extending Building must override evacuationWarningMessage');
+    }
   }
 }
