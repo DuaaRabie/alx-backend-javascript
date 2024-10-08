@@ -8,8 +8,3 @@ export function queryAPI(endpoint) {
     throw new Error('Endpoint load is high');
   }
 }
-
-// Helper function to get call count
-export function getCallCount(endpoint) {
-  return weakMap.get(endpoint) || 0;
-}
