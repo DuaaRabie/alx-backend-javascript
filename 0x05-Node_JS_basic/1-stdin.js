@@ -3,8 +3,8 @@ process.stdin.setEncoding('utf8');
 process.stdin.resume();
 
 process.stdin.on('readable', () => {
-  const uName = process.stdin.read();
-  if (uName) {
+  const name = process.stdin.read();
+  if (name) {
     process.stdout.write(`Your name is: ${name}`);
   }
 });
