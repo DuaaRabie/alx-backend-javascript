@@ -5,8 +5,8 @@ process.stdin.resume();
 process.stdin.on('data', function(data) {
   var name = data.toString().trim();
   console.log("Your name is: %s", name);
+  process.stdin.pause();
 });
-process.stdin.on('end', function() {
+process.on('exit', function() {
   process.stdout.write("This important software is now closing\n");
-  process.exit(0);
 });
