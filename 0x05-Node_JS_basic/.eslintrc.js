@@ -2,19 +2,19 @@ module.experts = {
   env: {
     browser: false,
     es6: true,
-    jest: true,
+    jest: true
   },
   extends: [
     'airbnb-base',
-    'plugin:jest/all',
+    'plugin:jest/all'
   ],
   globals: {
     Atomics: 'readonly',
-    SharedArrayBuffer: 'readonly',
+    SharedArrayBuffer: 'readonly'
   },
   parserOptions: {
     ecmaVersion: 2018,
-    sourceType: 'module',
+    sourceType: 'module'
   },
   plugins: ['jest'],
   rules: {
@@ -25,13 +25,13 @@ module.experts = {
     'no-restricted-syntax': [
       'error',
       'LabeledStatement',
-      'WithStatement',
-    ],
+      'WithStatement'
+    ]
   },
-  overrides:[
+  overrides: [
     {
       files: ['*.js'],
-      excludedFiles: 'babel.config.js',
+      excludedFiles: 'babel.config.js'
     }
   ]
 };
