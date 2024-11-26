@@ -1,8 +1,8 @@
 #!/usr/bin/node
 
-function displayMessage (message) {
+function displayMessage(message) {
   // display the message
-  console.log(message);
+  process.stdout.write(message + '\n');
 }
 
 module.exports = displayMessage;
