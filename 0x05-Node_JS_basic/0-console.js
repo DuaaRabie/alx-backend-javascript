@@ -1,8 +1,8 @@
 #!/usr/bin/node
+// task0 display messages
 
-function displayMessage(message) {
+
+module.exports = function displayMessage(message) {
   // display the message
-  process.stdout.write(message + '\n');
-}
-
-module.exports = displayMessage;
+  console.log(message);
+};
