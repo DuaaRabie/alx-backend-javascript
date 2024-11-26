@@ -2,7 +2,7 @@
 
 function displayMessage (message) {
   // display the message
-  process.stdout.write(message + '\n');
+  console.log(message);
 }
 
 module.exports = displayMessage;
