@@ -1,36 +1,38 @@
-const { createServer } = require('http');
-const countStudents = require('./3-read_file_async.js');
-const hostname = '127.0.0.1';
-const port = 1245;
+const fs = require('fs').promises;
 
-const app = createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
+async function countStudents(file) {
+  try {
+    const stats = await fs.stat(file);
+    if (!stats.isFile()) {
+      throw new Error('Cannot load the database');
+    }
+    const content = await fs.readFile(file, 'utf-8');
+    const lines = content.trim().split('\n');
+    const students = lines.slice(1, lines.length).map((arg) => arg.split(','));
+    const fields = new Set(students.map((arg) => arg[3]));
+    const response = [Number of students: ${lines.length - 1}];
+
+    fields.forEach((field) => {
+      const all = students.filter((stu) => stu[3] === field).map((stu) => stu[0]);
+      response.push(Number of students in ${field}: ${all.length}. List: ${all.join(', ')});
+    });
+    return response.join('\n');
+  } catch (error) {
+    return 'Cannot load the database';
+  }
+}
+
+const app = require('http').createServer((req, res) => {
   if (req.url === '/') {
     res.end('Hello Holberton School!');
-  }
-  else if (req.url === '/students') {
-    const filePath = process.argv[2];
-    if (!filePath) {
-      res.statusCode = 400;
-      res.end('Database file path is required\n');
-    }
-    countStudents(filePath)
+  } else if (req.url === '/students') {
+    countStudents(process.argv[2])
       .then((data) => {
-        res.end(`This is the list of our students\n${countStudents(filePath)}`);
-      })
-      .catch((err) => {
-        res.statusCode = 500;
-        res.end(`Error: ${err.message}\n`);
+        res.write('This is the list of our students\n');
+        res.write(data);
+        res.end();
       });
-  } else {
-    res.statusCode = 404;
-    res.end('Not Found\n');
   }
-});
-
-app.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}`);
-});
+}).listen(1245);
 
 module.exports = app;
