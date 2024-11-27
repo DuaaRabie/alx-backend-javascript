@@ -49,10 +49,10 @@ const countStudents = (dataPath) => new Promise((resolve, reject) => {
         const totalStudents = Object.values(studentGroups).reduce(
           (pre, cur) => (pre || []).length + cur.length,
         );
-        reportParts.push(Number of students: ${totalStudents});
+        reportParts.push(`Number of students: ${totalStudents}`);
         for (const [field, group] of Object.entries(studentGroups)) {
           reportParts.push([
-            Number of students in ${field}: ${group.length}.,
+            `Number of students in ${field}: ${group.length}.`,
             'List:',
             group.map((student) => student.firstname).join(', '),
           ].join(' '));
@@ -90,7 +90,7 @@ app.get('/students', (_, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(Server listening on PORT ${PORT});
+  console.log(`Server listening on PORT ${PORT}`);
 });
 
 module.exports = app;
