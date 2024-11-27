@@ -10,11 +10,11 @@ async function countStudents(file) {
     const lines = content.trim().split('\n');
     const students = lines.slice(1, lines.length).map((arg) => arg.split(','));
     const fields = new Set(students.map((arg) => arg[3]));
-    const response = [Number of students: ${lines.length - 1}];
+    const response = [`Number of students: ${lines.length - 1}`];
 
     fields.forEach((field) => {
       const all = students.filter((stu) => stu[3] === field).map((stu) => stu[0]);
-      response.push(Number of students in ${field}: ${all.length}. List: ${all.join(', ')});
+      response.push(`Number of students in ${field}: ${all.length}. List: ${all.join(', ')}`);
     });
     return response.join('\n');
   } catch (error) {
