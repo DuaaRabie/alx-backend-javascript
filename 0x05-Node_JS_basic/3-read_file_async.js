@@ -22,7 +22,7 @@ function countStudents(path) {
       console.log(`Number of students: ${students.length}`);
       /* eslint-disable-next-line guard-for-in */
       for (const field in fieldCount) {
-        console.log(`Number of students in ${field}: ${fieldCount[field].length}. List: ${fieldCount[field].join(', ')}`);
+        console.log(`mNumber of students in ${field}: ${fieldCount[field].length}. List: ${fieldCount[field].join(', ')}`);
       }
       resolve();
     });
