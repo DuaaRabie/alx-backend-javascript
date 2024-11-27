@@ -2,10 +2,11 @@
 const fs = require('fs');
 
 function countStudents(path) {
+  // eslint-disable-next-line no-unused-vars
   return new Promise((resolve, reject) => {
     fs.readFile(path, 'utf8', (err, file) => {
       if (err) {
-        reject(throw new Error('Cannot load the database'));
+        throw new Error('Cannot load the database');
       }
       const lines = file.trim().split('\n');
       const students = lines.slice(1).map((line) => line.split(','));
