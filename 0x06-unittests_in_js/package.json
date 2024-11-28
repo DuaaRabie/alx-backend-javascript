@@ -1,5 +1,5 @@
 {
-  "name": "ls",
+  "name": "0x06-unittests_in_js",
   "version": "1.0.0",
   "description": "0x06-unittests_in_js",
   "main": "0-calcul.js",
@@ -12,6 +12,6 @@
   "scripts": {
     "test": "mocha"
   },
-  "author": "",
+  "author": "Duaa",
   "license": "ISC"
 }
