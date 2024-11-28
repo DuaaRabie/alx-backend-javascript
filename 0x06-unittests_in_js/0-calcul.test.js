@@ -6,6 +6,14 @@ describe('calculateNumber', function() {
     assert.strictEqual(calculateNumber(1, 3), 4); // 1 + 3 = 4
   })
 
+  it('should return the sum of the rounded values of 0 and 3.4', function() {
+    assert.strictEqual(calculateNumber(0, 3.4), 3); // 0 + 3 = 3
+  })
+
+  it('should return the sum of the rounded values of -3.6 and 0', function() {
+    assert.strictEqual(calculateNumber(-3.6, 0), -4); // -4 + 0 = -4
+  });
+
   it('should return the sum of the rounded values of 1 and 3.7', function() {
     assert.strictEqual(calculateNumber(1, 3.7), 5); // 1 + 4 = 5
   });
