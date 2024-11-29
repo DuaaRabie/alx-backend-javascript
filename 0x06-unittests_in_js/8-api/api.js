@@ -1,14 +1,14 @@
 const express = require('express');
 const app = express();
 
-// Route for the index page
+// Define a route for the index page
 app.get('/', (req, res) => {
-  res.send('Welcome to the payment system');
+  res.status(200).send('Welcome to the payment system');
 });
 
-// Start the server
+// Start the server and listen on port 7865
 app.listen(7865, () => {
   console.log('API available on localhost port 7865');
 });
 
-module.exports = app;  // Export the app instance for testing
+module.exports = app; // Export the app to be used in tests
