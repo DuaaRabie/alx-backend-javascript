@@ -12,7 +12,7 @@ app.get('/', (_req, res) => {
 app.get('/cart/:id(\\d+)', (req, res) => {
   const id = req.params.id;
 
-  res.send(Payment methods for cart ${id});
+  res.send(`Payment methods for cart ${id}`);
 });
 
 app.get('/available_payments', (_req, res) => {
